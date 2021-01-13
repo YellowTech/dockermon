@@ -21,3 +21,6 @@ docker-compose up -d
 
 and access the grafana web interface over the port 3000. This port can also be given to a reverse proxy to add encryption.
 No other ports are opened but the corresponding lines can be uncommented in the docker-compose.yml file
+
+
+Example dashboards can be found in the Dashboard folder.
