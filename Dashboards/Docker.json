@@ -17,7 +17,7 @@
   "gnetId": 8321,
   "graphTooltip": 1,
   "id": 4,
-  "iteration": 1610508541765,
+  "iteration": 1617215919540,
   "links": [],
   "panels": [
     {
@@ -345,7 +345,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -451,7 +451,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -555,7 +555,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -658,7 +658,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -760,7 +760,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -863,7 +863,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -925,7 +925,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "docker"
@@ -941,6 +941,7 @@
         },
         "datasource": "Prometheus",
         "definition": "",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -948,7 +949,10 @@
         "multi": false,
         "name": "job",
         "options": [],
-        "query": "label_values(container_cpu_user_seconds_total, job)",
+        "query": {
+          "query": "label_values(container_cpu_user_seconds_total, job)",
+          "refId": "Prometheus-job-Variable-Query"
+        },
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -968,6 +972,7 @@
         },
         "datasource": "Prometheus",
         "definition": "",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -975,7 +980,10 @@
         "multi": false,
         "name": "node",
         "options": [],
-        "query": "label_values(container_cpu_user_seconds_total{job=~\"$job\"}, instance)",
+        "query": {
+          "query": "label_values(container_cpu_user_seconds_total{job=~\"$job\"}, instance)",
+          "refId": "Prometheus-node-Variable-Query"
+        },
         "refresh": 1,
         "regex": "/([^:]+):.*/",
         "skipUrlSync": false,
@@ -995,6 +1003,7 @@
         },
         "datasource": "Prometheus",
         "definition": "",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -1002,7 +1011,10 @@
         "multi": false,
         "name": "port",
         "options": [],
-        "query": "label_values(container_cpu_user_seconds_total{instance=~\"$node:(.*)\"}, instance)",
+        "query": {
+          "query": "label_values(container_cpu_user_seconds_total{instance=~\"$node:(.*)\"}, instance)",
+          "refId": "Prometheus-port-Variable-Query"
+        },
         "refresh": 1,
         "regex": "/[^:]+:(.*)/",
         "skipUrlSync": false,
